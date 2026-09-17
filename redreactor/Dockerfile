@@ -15,7 +15,7 @@ ARG HA_CLI_VERSION="5.5.0"
 RUN \
     apk add --no-cache --virtual .build-dependencies \
         gcc=12.2.1_git20220924-r4 \
-        musl-dev=1.2.3-r6 \
+        musl-dev=1.2.6-r2 \
         linux-headers=5.19.5-r0 \
     \
     && pip3 install --no-cache-dir -r /tmp/requirements.txt \
