@@ -1,6 +1,6 @@
 #!/command/with-contenv bashio
 # ==============================================================================
-# Home Assistant Add-on: Red Reactor Monitor
+# Home Assistant App: Red Reactor Monitor
 # Runs the Red Reactor service
 # ==============================================================================
 

@@ -12,7 +12,7 @@
       "matchStringsStrategy": "any",
       "matchStrings": [
         "ARG BUILD_FROM=(?<depName>.*?):(?<currentValue>.*?)\\s+",
-        "(aarch64|armhf|armv7):\\s[\"']?(?<depName>.*?):(?<currentValue>.*?)[\"']?\\s"
+        "(aarch64):\\s[\"']?(?<depName>.*?):(?<currentValue>.*?)[\"']?\\s"
       ],
       "datasourceTemplate": "docker"
     },
@@ -49,11 +49,11 @@
       "automerge": true
     },
     {
-      "groupName": "Add-on base image",
+      "groupName": "App base image",
       "matchDatasources": ["docker"]
     },
     {
-      "groupName": "Add-on base image",
+      "groupName": "App base image",
       "matchDatasources": ["docker"],
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true
