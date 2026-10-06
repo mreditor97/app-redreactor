@@ -4,10 +4,7 @@ Automatically control your Red Reactor Battery Monitor from within Home Assistan
 
 [![Release][release-shield]][release]
 ![Supports aarch64 Architecture][aarch64-shield]
-![Supports armhf Architecture][armhf-shield]
-![Supports armv7 Architecture][armv7-shield]
 ![Supports amd64 Architecture][amd64-shield]
-![Supports i386 Architecture][i386-shield]
 
 ## About
 
@@ -19,9 +16,6 @@ The [Red Reactor][redreactor] can be purchased to help protect your Raspberry Pi
 [release-shield]: https://img.shields.io/github/v/release/mreditor97/app-redreactor?color=blue&include_prereleases
 [release]: https://github.com/mreditor97/app-redreactor/releases
 [aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
-[armhf-shield]: https://img.shields.io/badge/armhf-yes-green.svg
-[armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
 [amd64-shield]: https://img.shields.io/badge/amd64-no-red.svg
-[i386-shield]: https://img.shields.io/badge/i386-no-red.svg
 [issue]: https://github.com/mreditor97/app-redreactor/issues
 [redreactor]: https://www.theredreactor.com/
