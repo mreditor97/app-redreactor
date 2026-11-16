@@ -54,9 +54,7 @@ battery:
   shutdown_readings: 3 # Low readings in a row before the low battery shutdown, 1 to 20 (optional)
   report_level_change: 5 # Level change in points reported straight away, 0 turns it off (optional)
   curve: [] # Resting voltage to battery level points, empty uses a straight line
-system:
-  shutdown: ha host shutdown # Shutdown, sent to the Supervisor API (this doesn't need changing)
-  restart: ha host restart # Restart, sent to the Supervisor API (this doesn't need changing)
+system: {} # Shutdown and restart commands, left out to use the Supervisor API (optional)
 logging:
   console: INFO
   file: WARNING

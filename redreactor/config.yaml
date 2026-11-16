@@ -29,9 +29,7 @@ options:
   ina: {}
   battery:
     curve: []
-  system:
-    shutdown: ha host shutdown
-    restart: ha host restart
+  system: {}
   logging:
     console: INFO
     file: WARNING
@@ -70,8 +68,8 @@ schema:
       - voltage: float
         level: float(0,100)
   system:
-    shutdown: match(^.*\S.*$)
-    restart: match(^.*\S.*$)
+    shutdown: str?
+    restart: str?
   logging:
     console: list(DEBUG|INFO|WARNING|ERROR|CRITICAL)
     file: list(DEBUG|INFO|WARNING|ERROR|CRITICAL)
