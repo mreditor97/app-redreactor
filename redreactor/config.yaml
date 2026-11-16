@@ -64,6 +64,7 @@ schema:
   battery:
     internal_resistance: float(0,)?
     average_readings: int(1,100)?
+    shutdown_readings: int(1,20)?
     report_level_change: int(0,100)?
     curve:
       - voltage: float

@@ -51,6 +51,7 @@ ina:
 battery:
   internal_resistance: 35 # Battery internal resistance in mΩ, 0 turns it off (optional)
   average_readings: 6 # Readings averaged for the battery level, 1 to 100, 1 turns it off (optional)
+  shutdown_readings: 3 # Low readings in a row before the low battery shutdown, 1 to 20 (optional)
   report_level_change: 5 # Level change in points reported straight away, 0 turns it off (optional)
   curve: [] # Resting voltage to battery level points, empty uses a straight line
 system:
@@ -121,12 +122,11 @@ This curve was read off the 0.2 A discharge trace in the [lygte-info.dk review o
 Other configuration options are available from within the Home Assistant Device configuration page:
 
 - **Battery shutdown level**: when the battery drops to this percentage while running on battery, the Red Reactor safely shuts down Home Assistant. If Home Assistant starts up below this level while the battery is charging, it stays on.
-- **Report interval**, and the battery voltage minimum and maximum used to work out the battery level.
-- **Monitor interval** and **Readings averaged**. These start at the `ina.monitor_interval` and `battery.average_readings` app options. Once changed on the device page that value is used, until it is set back to the app option's value.
-- **Shutdown confirmation readings**: how many readings in a row must be at or below the shutdown level before the shutdown starts (default 3).
-- **Refresh**: takes a reading and reports it straight away.
+- **Report interval** (default 60 seconds), and the battery voltage minimum and maximum used to work out the battery level.
 
-The device also shows the power drawn from the battery, and whether it is charging. **Sensor problem** turns on when the Red Reactor can't be read 3 times in a row, and the battery readings show as unknown until it can be read again. **Last shutdown**, **Last shutdown time** and **Last shutdown voltage** show why the app last shut down or restarted the system (low battery, or the Shutdown or Restart button).
+The monitor interval, readings averaged and shutdown readings are the `ina.monitor_interval`, `battery.average_readings` and `battery.shutdown_readings` app options. The shutdown starts after `battery.shutdown_readings` readings in a row at or below the shutdown level (default 3).
+
+The device also shows the power drawn from the battery, and whether it is charging. When the Red Reactor can't be read 3 times in a row, the battery readings show as unknown until it can be read again.
 
 The battery level is also reported straight away when it moves by `battery.report_level_change` percentage points (default 5), and when charging starts or stops.
 

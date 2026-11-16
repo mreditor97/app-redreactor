@@ -105,8 +105,7 @@ configuration:
       monitor_interval:
         name: Monitor interval
         description: >-
-          Seconds between battery readings, from 1 to 60 (default 5). Can
-          also be changed from the device page, which then takes over
+          Seconds between battery readings, from 1 to 60 (default 5)
       adc_samples:
         name: Samples per reading
         description: >-
@@ -128,8 +127,12 @@ configuration:
         name: Average readings
         description: >-
           How many readings are averaged for the battery level, from 1 to 100
-          (default 6, 1 turns it off). Can also be changed from the device
-          page, which then takes over
+          (default 6, 1 turns it off)
+      shutdown_readings:
+        name: Shutdown readings
+        description: >-
+          How many readings in a row must be at or below the shutdown level,
+          on battery, before the shutdown starts, from 1 to 20 (default 3)
       report_level_change:
         name: Report level change
         description: >-
