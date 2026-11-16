@@ -18,8 +18,8 @@ ARG BUILD_VERSION
 # No compiler is installed: redreactor reads the INA219 with smbus2, which is
 # pure Python. Releases before smbus2 (0.1.8 and older) need spidev compiled,
 # so they no longer build here.
-# No `ha` CLI either: redreactor sends `ha host shutdown` and `ha host restart`
-# straight to the Supervisor API.
+# No `ha` CLI either: redreactor shuts down and restarts through the Supervisor
+# API itself.
 RUN \
     requirements="/tmp/requirements.txt" \
     && if [[ "${BUILD_VERSION:-}" =~ ^[0-9a-f]{7}$ ]]; then \
