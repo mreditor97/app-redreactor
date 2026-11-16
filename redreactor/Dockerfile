@@ -11,7 +11,6 @@ COPY requirements.txt requirements-beta.txt requirements-edge.txt /tmp/
 # Setup Base
 ARG BUILD_ARCH=aarch64
 ARG BUILD_VERSION
-ARG HA_CLI_VERSION="5.7.0"
 
 # Edge builds (versioned by a 7 character commit hash) install the latest
 # redreactor alpha, beta builds (versioned X.Y.Z-something) the latest
@@ -19,6 +18,8 @@ ARG HA_CLI_VERSION="5.7.0"
 # No compiler is installed: redreactor reads the INA219 with smbus2, which is
 # pure Python. Releases before smbus2 (0.1.8 and older) need spidev compiled,
 # so they no longer build here.
+# No `ha` CLI either: redreactor sends `ha host shutdown` and `ha host restart`
+# straight to the Supervisor API.
 RUN \
     requirements="/tmp/requirements.txt" \
     && if [[ "${BUILD_VERSION:-}" =~ ^[0-9a-f]{7}$ ]]; then \
@@ -28,11 +29,6 @@ RUN \
     fi \
     \
     && pip3 install --no-cache-dir -r "${requirements}" \
-    \
-    && curl -fsSL -o /usr/bin/ha \
-        "https://github.com/home-assistant/cli/releases/download/${HA_CLI_VERSION}/ha_${BUILD_ARCH}" \
-    \
-    && chmod a+x /usr/bin/ha \
     \
     && rm -fr \
         /tmp/*

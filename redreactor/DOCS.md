@@ -55,8 +55,8 @@ battery:
   report_level_change: 5 # Level change in points reported straight away, 0 turns it off (optional)
   curve: [] # Resting voltage to battery level points, empty uses a straight line
 system:
-  shutdown: ha host shutdown # Shutdown (if using HASS OS, this doesn't need changing)
-  restart: ha host restart # Restart (if using HASS OS, this doesn't need changing)
+  shutdown: ha host shutdown # Shutdown, sent to the Supervisor API (this doesn't need changing)
+  restart: ha host restart # Restart, sent to the Supervisor API (this doesn't need changing)
 logging:
   console: INFO
   file: WARNING

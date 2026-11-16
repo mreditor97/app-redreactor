@@ -19,16 +19,6 @@
     {
       "customType": "regex",
       "managerFilePatterns": ["//Dockerfile$/"],
-      "matchStrings": [
-        "ARG HA_CLI_VERSION=[\"']?(?<currentValue>.+?)[\"']?\\s+"
-      ],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "home-assistant/cli",
-      "versioningTemplate": "loose"
-    },
-    {
-      "customType": "regex",
-      "managerFilePatterns": ["//Dockerfile$/"],
       "matchStringsStrategy": "any",
       "matchStrings": [
         "\\s\\s(?<package>[a-z0-9][a-z0-9-_]+)=(?<currentValue>[a-z0-9-_.]+)\\s+"
@@ -39,11 +29,6 @@
     }
   ],
   "packageRules": [
-    {
-      "matchDatasources": ["github-releases"],
-      "matchDepNames": ["home-assistant/cli"],
-      "automerge": true
-    },
     {
       "matchDatasources": ["repology"],
       "automerge": true
