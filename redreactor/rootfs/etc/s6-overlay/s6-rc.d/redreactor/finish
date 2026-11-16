@@ -6,6 +6,13 @@
 
 declare APP_EXIT_CODE=${1}
 
+# 3: the shutdown or restart didn't work. Leave the tree up, so s6 starts Red
+# Reactor again and a low battery shutdown is tried again
+if [[ "${APP_EXIT_CODE}" -eq 3 ]]; then
+    bashio::log.warning "The shutdown or restart didn't work, starting Red Reactor Monitor again"
+    exit 0
+fi
+
 if [[ "${APP_EXIT_CODE}" -ne 0 ]] && [[ "${APP_EXIT_CODE}" -ne 256 ]]; then
     bashio::log.warning "Halt Red Reactor Monitor with exit code ${APP_EXIT_CODE}"
     echo "${APP_EXIT_CODE}" > /run/s6-linux-init-container-results/exitcode
